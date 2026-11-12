@@ -1,11 +1,11 @@
 export const Header = () => {
-
     return (
-            <header class="flex flex-col pb-6 border-slate-800 border-b">
-                <span class="text-xs text-cyan-500 font-mono tracking-widest uppercase font-semibold">// Agincourt
-                    Edition</span>
-                <h1 class=" text-3xl font-bold text-white">Cubic Equation Solver</h1>
-                <p class="flex justify-end text-slate-500 text-xs font-mono">Real-time cubic equation analysis tool</p>
-            </header>
+        <header className="flex flex-col justify-between gap-4 border-slate-800 border-b pb-6 md:flex-row md:items-end">
+            <div>
+                <span className="font-mono font-semibold text-cyan-500 text-xs uppercase tracking-widest">// AGINCOURT EDITION</span>
+                <h1 className="mt-1 font-bold text-3xl text-white tracking-tight">Cubic Equation Solver</h1>
+            </div>
+            <p className="max-w-xs font-mono text-slate-500 text-xs md:text-right">Real-time cubic equation analysis tool</p>
+        </header>
     )
 }
