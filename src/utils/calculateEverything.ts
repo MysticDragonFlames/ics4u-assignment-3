@@ -1,10 +1,10 @@
-import { drawGraph } from "@ics4u-assignment-02/utils";
-import type { Coefficients, Results } from "@ics4u-assignment-02/types";
-import { getSign } from "@ics4u-assignment-02/utils";
-import { round } from "@ics4u-assignment-02/utils";
+import { drawGraph } from "@ics4u-assignment-03/utils";
+import type { Coefficients, Results } from "@ics4u-assignment-03/types";
+import { getSign } from "@ics4u-assignment-03/utils";
+import { round } from "@ics4u-assignment-03/utils";
 
 export const calculateEverything = ({ a, b, c, d }: Coefficients) => {
-  const canvas = document.getElementById("graph") as HTMLCanvasElement;
+
   const results: Results = {
     p: 0,
     q: 0,
@@ -39,15 +39,7 @@ export const calculateEverything = ({ a, b, c, d }: Coefficients) => {
     results.roots = "1 Real Root, 2 Complex Roots";
     results.factored = "No Real Factorization";
 
-    drawGraph(
-      { a, b, c, d },
-      {
-        r1: { x: root1, y: 0 },
-        r2: { x: NaN, y: NaN },
-        r3: { x: NaN, y: NaN },
-      },
-      canvas,
-    );
+
   } else if (round(discriminant) < 0) {
     const root1 = 2 * Math.sqrt(-p / 3) * Math.cos(theta) - b / (3 * a);
     const root2 = 2 * Math.sqrt(-p / 3) * Math.cos(theta + (2 * Math.PI) / 3) - b / (3 * a);
@@ -58,15 +50,7 @@ export const calculateEverything = ({ a, b, c, d }: Coefficients) => {
     results.roots = "3 Distinct Real Roots";
     results.factored = `${a}(x ${getSign(root1, true)} ${round(Math.abs(root1))})(x ${getSign(root2, true)} ${round(Math.abs(root2))})(x ${getSign(root3, true)} ${round(Math.abs(root3))})`;
 
-    drawGraph(
-      { a, b, c, d },
-      {
-        r1: { x: root1, y: 0 },
-        r2: { x: root2, y: 0 },
-        r3: { x: root3, y: 0 },
-      },
-      canvas,
-    );
+
   } else {
     if (Number.isNaN(p)) {
       results.r1 = { x: "N/A", y: "N/A" };
@@ -74,15 +58,7 @@ export const calculateEverything = ({ a, b, c, d }: Coefficients) => {
       results.r3 = { x: "N/A", y: "N/A" };
       results.roots = "N/A";
       results.factored = "No Real factorization";
-      drawGraph(
-        { a, b, c, d },
-        {
-          r1: { x: NaN, y: 0 },
-          r2: { x: NaN, y: 0 },
-          r3: { x: NaN, y: 0 },
-        },
-        canvas,
-      );
+
     } else if (p !== 0) {
       const root1 = Math.cbrt(q / 2) - b / (3 * a);
       const root2 = -Math.cbrt(4 * q) - b / (3 * a);
@@ -92,15 +68,6 @@ export const calculateEverything = ({ a, b, c, d }: Coefficients) => {
       results.roots = "Double Real Roots, Single Real Root";
       results.factored = `${a}(x ${getSign(root1, true)} ${round(Math.abs(root1))})²(x${getSign(root2, true)} ${round(Math.abs(root2))})`;
 
-      drawGraph(
-        { a, b, c, d },
-        {
-          r1: { x: root2, y: 0 },
-          r2: { x: root2, y: 0 },
-          r3: { x: root1, y: 0 },
-        },
-        canvas,
-      );
     } else {
       const root1 =
         Math.cbrt(-q / 2 + Math.sqrt((q / 2) ** 2 + (p / 3) ** 3)) +
@@ -111,15 +78,7 @@ export const calculateEverything = ({ a, b, c, d }: Coefficients) => {
       results.r3 = { x: round(root1), y: 0 };
       results.roots = "Triple Real Roots";
       results.factored = `${a}(x ${getSign(root1, true)} ${round(Math.abs(root1))})³`;
-      drawGraph(
-        { a, b, c, d },
-        {
-          r1: { x: root1, y: 0 },
-          r2: { x: root1, y: 0 },
-          r3: { x: root1, y: 0 },
-        },
-        canvas,
-      );
+
     }
     const derDiscrim = b ** 2 - 3 * a * c;
 

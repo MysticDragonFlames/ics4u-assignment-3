@@ -1,18 +1,30 @@
-import { AppInputs } from "@ics4u-assignment-03/App"
+import type { Coefficients, Changes } from "@ics4u-assignment-03/types"
+import type { SyntheticEvent } from "react"
 
-export const Inputs = () => {
-    AppInputs
+type Props =  {
+    onSubmit: (value: Coefficients) => void
+}
+export const Inputs = ({a, b, c, d, aChange, bChange, cChange, dChange, onSubmit}: Coefficients & Changes & Props) => {
+    const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        onSubmit({a, b, c, d})
+
+        
+    }
     return (
+        
         <section className="bg-[#0b0f19] border border-slate-800 rounded-xl p-6 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-1 h-full bg-cyan-500"></div>
-            <form id="form" className="flex flex-wrap items-center justify-between gap-6">
+            <form onSubmit={handleSubmit}
+            id="form" className="flex flex-wrap items-center justify-between gap-6">
                 <div className="flex flex-wrap gap-4 sm:gap-6 flex-1 justify-start">
                     <label className="group flex flex-col gap-1.5">
                         <span className="text-xs font-mono text-slate-500 group-focus-within:text-cyan-400 transition">a-value [x³]</span>
                         <input
                             name="a"
-                            value="0"
+                            value={a}
                             id="a"
+                            onChange={(event) => aChange(Number(event.target.value))}
                             className="w-24 px-3 py-2 rounded-md bg-[#121824] border border-slate-800 text-white font-mono focus:outline-none focus:border-cyan-500 transition text-center"
                         />
                     </label>
@@ -20,8 +32,9 @@ export const Inputs = () => {
                         <span className="text-xs font-mono text-slate-500 group-focus-within:text-cyan-400 transition">b-value [x²]</span>
                         <input
                             name="b"
-                            value="0"
+                            value={b}
                             id="b"
+                            onChange={(event) => bChange(Number(event.target.value))}
                             className="w-24 px-3 py-2 rounded-md bg-[#121824] border border-slate-800 text-white font-mono focus:outline-none focus:border-cyan-500 transition text-center"
                         />
                     </label>
@@ -29,8 +42,9 @@ export const Inputs = () => {
                         <span className="text-xs font-mono text-slate-500 group-focus-within:text-cyan-400 transition">c-value [x]</span>
                         <input
                             name="c"
-                            value="0"
+                            value={c}
                             id="c"
+                            onChange={(event) => cChange(Number(event.target.value))}
                             className="w-24 px-3 py-2 rounded-md bg-[#121824] border border-slate-800 text-white font-mono focus:outline-none focus:border-cyan-500 transition text-center"
                         />
                     </label>
@@ -38,8 +52,9 @@ export const Inputs = () => {
                         <span className="text-xs font-mono text-slate-500 group-focus-within:text-cyan-400 transition">d-value [c]</span>
                         <input
                             name="d"
-                            value="0"
+                            value={d}
                             id="d"
+                            onChange={(event) => dChange(Number(event.target.value))}
                             className="w-24 px-3 py-2 rounded-md bg-[#121824] border border-slate-800 text-white font-mono focus:outline-none focus:border-cyan-500 transition text-center"
                         />
                     </label>

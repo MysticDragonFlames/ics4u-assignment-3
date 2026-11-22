@@ -3,8 +3,15 @@ export type Coefficients = {
   b: number;
   c: number;
   d: number;
+
 };
 
+export type Changes = {
+  aChange: Function;
+  bChange: Function;
+  cChange: Function;
+  dChange: Function;
+}
 export type Coordinate = {
   x: number | string;
   y: number | string;

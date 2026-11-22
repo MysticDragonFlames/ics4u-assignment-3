@@ -1,4 +1,4 @@
-import type { Coefficients, Results } from "@ics4u-assignment-02/types";
+import type { Coefficients, Results } from "@ics4u-assignment-03/types";
 
 export const drawGraph = ({ a, b, c, d }: Coefficients, { r1, r2, r3 }: Partial<Results>, canvas: HTMLCanvasElement) => {
   const ctx = canvas.getContext("2d");
