@@ -2,13 +2,12 @@ import type { Coefficients, Changes } from "@ics4u-assignment-03/types"
 import type { SyntheticEvent } from "react"
 
 type Props =  {
-    onSubmit: (value: Coefficients) => void
-}
-export const Inputs = ({a, b, c, d, aChange, bChange, cChange, dChange, onSubmit}: Coefficients & Changes & Props) => {
+    numberTravel: (value: Coefficients) => void
+} 
+export const Inputs = ({a, b, c, d, aChange, bChange, cChange, dChange, numberTravel}: Coefficients & Changes & Props) => {
     const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
         event.preventDefault()
-        onSubmit({a, b, c, d})
-
+        numberTravel({a, b, c, d})
         
     }
     return (

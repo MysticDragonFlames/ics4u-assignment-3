@@ -33,4 +33,5 @@ export type Results = {
   factored: string;
 };
 
-export type History = Coefficients[];
+export type HistoryEntry = Coefficients & {id: string}
+export type History = HistoryEntry[];

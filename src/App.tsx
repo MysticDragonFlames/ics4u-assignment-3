@@ -16,8 +16,9 @@ export const App = () => {
     const [storage, setStorage] = useState<History>([])
 
     const handleSubmit = () => {
-      setStorage((prev) => [...prev, {a, b, c, d}])
+      setStorage((prev) => [...prev, {a, b, c, d, id: crypto.randomUUID()}])
     }
+    console.log(storage)
   return (
     
     <div className="min-h-screen bg-[#07090e] text-slate-200 antialiased selection:bg-cyan-500/20 selection:text-cyan-300">
@@ -35,7 +36,7 @@ export const App = () => {
           cChange = {setC}
           dChange = {setD}
 
-          onSubmit = {handleSubmit}
+          numberTravel = {handleSubmit}
          />
         <div className="grid grid-cols-2 gap-12">
           <Analysis 
@@ -52,6 +53,7 @@ export const App = () => {
           />
           <Storage
             data = {storage}
+            
           />
         </div>
         </main>
