@@ -5,7 +5,8 @@ import { Inputs } from "@ics4u-assignment-03/components/Inputs"
 import { Analysis} from "@ics4u-assignment-03/components/Analysis"
 import { Summary } from "@ics4u-assignment-03/components/Summary"
 import {Storage} from "@ics4u-assignment-03/components/Storage"
-import type { History } from "@ics4u-assignment-03/types"
+import type { Coefficients, History } from "@ics4u-assignment-03/types"
+import { DrawGraph} from "@ics4u-assignment-03/components/DrawGraph"
 
 export const App = () => {
     const [a, setA] = useState(0);
@@ -23,6 +24,12 @@ export const App = () => {
       setStorage((prev) => prev.filter((item) => item.id !== id))
     }
 
+    const handleLoad = (vars: Coefficients) => {
+      setA(vars.a)
+      setB(vars.b)
+      setC(vars.c)
+      setD(vars.d)
+    }
   return (
     
     <div className="min-h-screen bg-[#07090e] text-slate-200 antialiased selection:bg-cyan-500/20 selection:text-cyan-300">
@@ -58,7 +65,13 @@ export const App = () => {
           <Storage
             data = {storage}
             onDelete = {handleDelete}
-            
+            onLoad = {handleLoad}
+          />
+          <DrawGraph
+            a = {a}
+            b = {b}
+            c = {c}
+            d = {d}
           />
         </div>
         </main>

@@ -7,6 +7,7 @@ export const Analysis = ({a, b, c, d}:  Coefficients) => {
         
         <section className="flex max-h-140 flex-col space-y-6">
             <div className="flex items-center gap-4">
+                {/** biome-ignore lint/suspicious/noCommentText: <its fine brotato> */}
                 <h2 className="font-bold font-mono text-slate-500 text-xs uppercase tracking-widest">01 // Analysis</h2>
             </div>
             <div className="space-y-1 font-mono text-xs">

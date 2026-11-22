@@ -1,9 +1,11 @@
-import type { History } from "@ics4u-assignment-03/types"
+import type { History, Coefficients } from "@ics4u-assignment-03/types"
+
 type Props = {
     onDelete: (value: string) => void
     data: History
+    onLoad: (value: Coefficients) => void
 }
-export const Storage = ({ data, onDelete }: Props) => {
+export const Storage = ({ data, onDelete, onLoad }: Props) => {
     return (
         <section className="flex max-h-140 flex-col space-y-6">
             <div className="flex items-center gap-4">
@@ -16,7 +18,7 @@ export const Storage = ({ data, onDelete }: Props) => {
                 </h1>
                 {data.map((item) => (
                     <div key={item.id} className="flex items-center gap-2">
-                        <button className="flex-1 rounded-xl border border-slate-700 bg-slate-800/40 p-3 text-left transition hover:bg-slate-800/70">
+                        <button onClick={() =>onLoad(item)} className="flex-1 rounded-xl border border-slate-700 bg-slate-800/40 p-3 text-left transition hover:bg-slate-800/70">
                             <div className="grid grid-cols-4 font-mono text-slate-200 text-sm">
                                 <span className="text-center">{item.a}</span>
                                 <span className="text-center">{item.b}</span>

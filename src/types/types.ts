@@ -12,6 +12,7 @@ export type Changes = {
   cChange: Function;
   dChange: Function;
 }
+
 export type Coordinate = {
   x: number | string;
   y: number | string;
