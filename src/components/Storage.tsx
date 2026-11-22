@@ -1,6 +1,9 @@
 import type { History } from "@ics4u-assignment-03/types"
-
-export const Storage = ({ data }: { data: History }) => {
+type Props = {
+    onDelete: (value: string) => void
+    data: History
+}
+export const Storage = ({ data, onDelete }: Props) => {
     return (
         <section className="flex max-h-140 flex-col space-y-6">
             <div className="flex items-center gap-4">
@@ -21,7 +24,7 @@ export const Storage = ({ data }: { data: History }) => {
                                 <span className="text-center">{item.d}</span>
                             </div>
                         </button>
-                        <button className="rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 font-medium text-red-400 text-xs transition hover:bg-red-500/20 hover:text-red-300">Delete</button>
+                        <button onClick={()=> onDelete(item.id)} className="rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 font-medium text-red-400 text-xs transition hover:bg-red-500/20 hover:text-red-300">Delete</button>
                     </div>
                 ))}
             </div>

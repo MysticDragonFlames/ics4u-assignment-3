@@ -5,7 +5,7 @@ import { Inputs } from "@ics4u-assignment-03/components/Inputs"
 import { Analysis} from "@ics4u-assignment-03/components/Analysis"
 import { Summary } from "@ics4u-assignment-03/components/Summary"
 import {Storage} from "@ics4u-assignment-03/components/Storage"
-import type { Coefficients, History } from "@ics4u-assignment-03/types"
+import type { History } from "@ics4u-assignment-03/types"
 
 export const App = () => {
     const [a, setA] = useState(0);
@@ -18,7 +18,11 @@ export const App = () => {
     const handleSubmit = () => {
       setStorage((prev) => [...prev, {a, b, c, d, id: crypto.randomUUID()}])
     }
-    console.log(storage)
+    
+    const handleDelete = (id: string) => {
+      setStorage((prev) => prev.filter((item) => item.id !== id))
+    }
+
   return (
     
     <div className="min-h-screen bg-[#07090e] text-slate-200 antialiased selection:bg-cyan-500/20 selection:text-cyan-300">
@@ -53,6 +57,7 @@ export const App = () => {
           />
           <Storage
             data = {storage}
+            onDelete = {handleDelete}
             
           />
         </div>
