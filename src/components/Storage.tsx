@@ -9,10 +9,11 @@ export const Storage = ({ data, onDelete, onLoad }: Props) => {
     return (
         <section className="flex max-h-140 flex-col space-y-6">
             <div className="flex items-center gap-4">
+                {/** biome-ignore lint/suspicious/noCommentText: <all goodie> */}
                 <h2 className="font-bold font-mono text-slate-500 text-xs uppercase tracking-widest">03 // History</h2>
             </div>
 
-            <div id="history" className="space-y-2 overflow-y-auto custom-scrollbar flex-1 pr-2 font-mono text-xs text-slate-400">
+            <div id="history" className="custom-scrollbar flex-1 space-y-2 overflow-y-auto pr-2 font-mono text-slate-400 text-xs">
                 <h1 id="message" className="text-slate-500 text-sm italic">
                     No saved equations yet.
                 </h1>

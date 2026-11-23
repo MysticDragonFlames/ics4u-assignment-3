@@ -12,29 +12,29 @@ export const Inputs = ({a, b, c, d, aChange, bChange, cChange, dChange, numberTr
     }
     return (
         
-        <section className="bg-[#0b0f19] border border-slate-800 rounded-xl p-6 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-1 h-full bg-cyan-500"></div>
+        <section className="relative overflow-hidden rounded-xl border border-slate-800 bg-[#0b0f19] p-6 shadow-2xl">
+            <div className="absolute top-0 left-0 h-full w-1 bg-cyan-500"></div>
             <form onSubmit={handleSubmit}
             id="form" className="flex flex-wrap items-center justify-between gap-6">
-                <div className="flex flex-wrap gap-4 sm:gap-6 flex-1 justify-start">
+                <div className="flex flex-1 flex-wrap justify-start gap-4 sm:gap-6">
                     <label className="group flex flex-col gap-1.5">
-                        <span className="text-xs font-mono text-slate-500 group-focus-within:text-cyan-400 transition">a-value [x³]</span>
+                        <span className="font-mono text-slate-500 text-xs transition group-focus-within:text-cyan-400">a-value [x³]</span>
                         <input
                             name="a"
                             value={a}
                             id="a"
                             onChange={(event) => aChange(Number(event.target.value))}
-                            className="w-24 px-3 py-2 rounded-md bg-[#121824] border border-slate-800 text-white font-mono focus:outline-none focus:border-cyan-500 transition text-center"
+                            className="w-24 rounded-md border border-slate-800 bg-[#121824] px-3 py-2 text-center font-mono text-white transition focus:border-cyan-500 focus:outline-none"
                         />
                     </label>
                     <label className="group flex flex-col gap-1.5">
-                        <span className="text-xs font-mono text-slate-500 group-focus-within:text-cyan-400 transition">b-value [x²]</span>
+                        <span className="font-mono text-slate-500 text-xs transition group-focus-within:text-cyan-400">b-value [x²]</span>
                         <input
                             name="b"
                             value={b}
                             id="b"
                             onChange={(event) => bChange(Number(event.target.value))}
-                            className="w-24 px-3 py-2 rounded-md bg-[#121824] border border-slate-800 text-white font-mono focus:outline-none focus:border-cyan-500 transition text-center"
+                            className="w-24 rounded-md border border-slate-800 bg-[#121824] px-3 py-2 text-center font-mono text-white transition focus:border-cyan-500 focus:outline-none"
                         />
                     </label>
                     <label className="group flex flex-col gap-1.5">
