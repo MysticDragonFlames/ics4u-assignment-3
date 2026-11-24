@@ -1,13 +1,19 @@
+/** biome-ignore-all assist/source/useSortedAttributes: <no> */
+/** biome-ignore-all assist/source/organizeImports: <no> */
 import type { Coefficients, Changes } from "@ics4u-assignment-03/types"
 import type { SyntheticEvent } from "react"
 
 type Props =  {
     numberTravel: (value: Coefficients) => void
+    a: string
+    b: string
+    c: string
+    d: string
 } 
-export const Inputs = ({a, b, c, d, aChange, bChange, cChange, dChange, numberTravel}: Coefficients & Changes & Props) => {
+export const Inputs = ({a, b, c, d, aChange, bChange, cChange, dChange, numberTravel}:  Changes & Props) => {
     const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
         event.preventDefault()
-        numberTravel({a, b, c, d})
+        numberTravel({a: Number(a), b: Number(b), c: Number(c), d: Number(d)})
         
     }
     return (
@@ -23,7 +29,7 @@ export const Inputs = ({a, b, c, d, aChange, bChange, cChange, dChange, numberTr
                             name="a"
                             value={a}
                             id="a"
-                            onChange={(event) => aChange(Number(event.target.value))}
+                            onChange={(event) => aChange(event.target.value)}
                             className="w-24 rounded-md border border-slate-800 bg-[#121824] px-3 py-2 text-center font-mono text-white transition focus:border-cyan-500 focus:outline-none"
                         />
                     </label>
@@ -33,35 +39,35 @@ export const Inputs = ({a, b, c, d, aChange, bChange, cChange, dChange, numberTr
                             name="b"
                             value={b}
                             id="b"
-                            onChange={(event) => bChange(Number(event.target.value))}
+                            onChange={(event) => bChange(event.target.value)}
                             className="w-24 rounded-md border border-slate-800 bg-[#121824] px-3 py-2 text-center font-mono text-white transition focus:border-cyan-500 focus:outline-none"
                         />
                     </label>
                     <label className="group flex flex-col gap-1.5">
-                        <span className="text-xs font-mono text-slate-500 group-focus-within:text-cyan-400 transition">c-value [x]</span>
+                        <span className="font-mono text-slate-500 text-xs transition group-focus-within:text-cyan-400">c-value [x]</span>
                         <input
                             name="c"
                             value={c}
                             id="c"
-                            onChange={(event) => cChange(Number(event.target.value))}
-                            className="w-24 px-3 py-2 rounded-md bg-[#121824] border border-slate-800 text-white font-mono focus:outline-none focus:border-cyan-500 transition text-center"
+                            onChange={(event) => cChange(event.target.value)}
+                            className="w-24 rounded-md border border-slate-800 bg-[#121824] px-3 py-2 text-center font-mono text-white transition focus:border-cyan-500 focus:outline-none"
                         />
                     </label>
                     <label className="group flex flex-col gap-1.5">
-                        <span className="text-xs font-mono text-slate-500 group-focus-within:text-cyan-400 transition">d-value [c]</span>
+                        <span className="font-mono text-slate-500 text-xs transition group-focus-within:text-cyan-400">d-value [c]</span>
                         <input
                             name="d"
                             value={d}
                             id="d"
-                            onChange={(event) => dChange(Number(event.target.value))}
-                            className="w-24 px-3 py-2 rounded-md bg-[#121824] border border-slate-800 text-white font-mono focus:outline-none focus:border-cyan-500 transition text-center"
+                            onChange={(event) => dChange(event.target.value)}
+                            className="w-24 rounded-md border border-slate-800 bg-[#121824] px-3 py-2 text-center font-mono text-white transition focus:border-cyan-500 focus:outline-none"
                         />
                     </label>
                 </div>
                 <input
                     type="submit"
                     value="SAVE"
-                    className="px-6 py-3 rounded-md bg-cyan-500 hover:bg-cyan-400 text-[#07090e] font-mono text-xs font-bold tracking-wider transition duration-150 active:scale-95 cursor-pointer shadow-lg shadow-cyan-500/10 self-end sm:self-auto w-full sm:w-auto text-center"
+                    className="w-full cursor-pointer self-end rounded-md bg-cyan-500 px-6 py-3 text-center font-bold font-mono text-[#07090e] text-xs tracking-wider shadow-cyan-500/10 shadow-lg transition duration-150 hover:bg-cyan-400 active:scale-95 sm:w-auto sm:self-auto"
                 />
             </form>
         </section>

@@ -3,9 +3,9 @@ import { calculateEverything, drawGraph } from "@ics4u-assignment-03/utils";
 import { useEffect, useRef } from "react";
 
 export const DrawGraph = ({ a, b, c, d }: Coefficients) => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const canvasReference = useRef<HTMLCanvasElement>(null);
     useEffect(() => {
-        const canvas = canvasRef.current;
+        const canvas = canvasReference.current;
         if (!canvas) return;
 
         const results = calculateEverything({ a, b, c, d });
@@ -23,7 +23,7 @@ export const DrawGraph = ({ a, b, c, d }: Coefficients) => {
                 <canvas
                     className="w-full rounded-md border border-slate-900 bg-[#04060a] shadow-inner"
                     height="400"
-                    ref={canvasRef}
+                    ref={canvasReference}
                     width="400"
                 ></canvas>
             </div>
